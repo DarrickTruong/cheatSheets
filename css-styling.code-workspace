@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "/Users/darrick/Documents/Coding_Dojo/css:bootstrap/grid-flexbox"
+		},
+		{
+			"path": "/Users/darrick/Documents/Coding_Dojo/css:bootstrap/navbar"
+		},
+		{
+			"path": "/Users/darrick/Documents/Coding_Dojo/css:bootstrap/responsive blocks"
+		},
+		{
+			"path": "/Users/darrick/Documents/Coding_Dojo/css:bootstrap/displaying blocks"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "displaying blocks"
+	}
+}

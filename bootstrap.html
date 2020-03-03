@@ -1,0 +1,338 @@
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+<!-- colors -->
+<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+<div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+<div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+<div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+<div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+<div class="p-3 mb-2 bg-info text-white">.bg-info</div>
+<div class="p-3 mb-2 bg-light text-dark">.bg-light</div>
+<div class="p-3 mb-2 bg-dark text-white">.bg-dark</div>
+<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+<div class="p-3 mb-2 bg-transparent text-dark">.bg-transparent</div>
+<!-- colors -->
+
+
+<!-- NavBar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- Navbar -->
+
+
+
+<!-- Date picker -->
+<link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
+<script src="bootstrap-datetimepicker.min.js"></script>
+<script>
+  $(function () {
+    ('#example').datetimepicker({
+      showDropDowns: true,
+    });
+
+  });
+</script>
+
+
+
+JSTL form:form
+<div class="container">
+  <form:form action="/processNewLicense" modelAttribute="license" method="post">
+    <div class="form-group row">
+      <label for="dojolocation" class="col-sm-2 col-form-label">Person</label>
+      <div class="col-sm-10">
+
+        <form:select class="custom-select" path="person">
+          <option selected>Open this select menu</option>
+          <c:forEach items="${persons}" var="person">
+            <form:option value="${person.id}">${person.firstName}
+              ${person.lastName}</form:option>
+          </c:forEach>
+        </form:select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <form:errors path="question"></form:errors>
+      <label class="col-sm-2 col-form-label">Question</label>
+      <div class="col-sm-10">
+        <form:textarea type="text" class="form-control" path="question"></form:textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+      <form:errors path="state"></form:errors>
+      <label class="col-sm-2 col-form-label">State</label>
+      <div class="col-sm-10">
+        <form:input type="text" class="form-control" path="state"></form:input>
+      </div>
+    </div>
+    <div class="form-group row">
+      <form:errors path="expirationDate"></form:errors>
+      <label class="col-sm-2 col-form-label">Expiration</label>
+      <div class="col-sm-10">
+        <form:input type="date" class="form-control" id="picker" path="expirationDate"></form:input>
+      </div>
+    </div>
+
+    <input type="submit" class='btn btn-primary btn-sm'>
+  </form:form>
+</div>
+
+
+
+<!-- Form -->
+<div class='container'>
+  <h5> Edit Contact Info</h5>
+  {% if messages %}
+  {% for message in messages %}
+          <p class="text-danger"> {{ message }} </li>
+        {% endfor %}
+    {% endif %}
+    <form action="/process_edit_contact" enctype='multipart/form-data' method='POST'>
+      <div class="form-group row">
+        {% csrf_token %}
+        <label for="staticEmail" class="col-sm-2 col-form-label">First name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" value="{{user.first_name}}" name='first_name'>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Last name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" value="{{user.last_name}}" name='last_name'>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="staticEmail" value="{{user.email}}" name='email'>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" value="{{user.phone}}" name='phone'>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Birthday</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" name='birthday' value={{date}}>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Website</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" value="{{user.website}}" name='website'>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">Linkedin</label>
+        <div class="col-sm-10">
+          <div class="input-group-prepend">
+            <div class="input-group-text">.com/</div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" value="{{user.linkedin}}" name='linkedin'>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">facebook</label>
+        <div class="col-sm-10">
+          <div class="input-group-prepend">
+            <div class="input-group-text">.com/</div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" value="{{user.facebook}}" name='facebook'>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">instagram</label>
+        <div class="col-sm-10">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+            <input type="text" class="form-control" id="inlineFormInputGroup" value="{{user.instagram}}"
+              name='instagram'>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="exampleFormControlSelect2" class="col-sm-10 col-form-label">Example multiple select</label>
+        <div class="col-sm-10">
+          <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="dojolocation" class="col-sm-2 col-form-label">Coding Dojo Location</label>
+        <div class="col-sm-10">
+          <select class="custom-select">
+            <option selected>Open this select menu</option>
+            <option value="1">San Jose</option>
+            <option value="2">Seattle</option>
+            <option value="3">Denver</option>
+          </select>
+        </div>
+      </div>
+      <input type="submit" class='btn btn-primary btn-sm'>
+    </form>
+
+
+    <!-- Date Picker -->
+    <p>Date Picker</p>
+    <div class="form-group row">
+      <div class="col-sm-12">
+        <input type="date" class="form-control" id="picker">
+      </div>
+    </div>
+
+    <!-- Price -->
+    <p>Price input</p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+      <div class="input-group-append">
+        <span class="input-group-text">.00</span>
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<!-- Text Area -->
+<p>Text Area</p>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
+</form>
+
+
+
+<!-- Card Group -->
+
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="http://placekitten.com/g/200/300" alt="Card image cap">
+    <div class="card-body"> Delicious Strawberries </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="http://placekitten.com/g/200/300" alt="Card image cap">
+    <div class="card-body"> Yummy Raspberries </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="http://placekitten.com/g/200/300" alt="Card image cap">
+    <div class="card-body"> Crisp Apples </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="http://placekitten.com/g/200/300" alt="Card image cap">
+    <div class="card-body"> Tasty Blackberries </div>
+  </div>
+</div>
+
+<!-- Jumbotron -->
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupiesthe entire horizontal space of its parent.</p>
+  </div>
+</div>
+
+
+<!-- Table -->
+<div class="container">
+  <table class="table table-sm table-striped table-active'">
+    <thead class='thead-dark'>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"> 1 </th>
+        <td> Kobe Bryant </td>
+        <td><a href="/authors/{{authors.id}}">View</a></td>
+      </tr>
+      <tr>
+        <th scope="row"> 2 </th>
+        <td> Steph Curry </td>
+        <td><a href="/authors/{{authors.id}}">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container">
+  <h1>"TITLE"</h1>
+
+  <p>Title: ${song.title} </p>
+  <p>Rating: ${song.rating} </p>
+  <p>Artist: ${song.artist} </p>
+  <!-- Insert Margin Here -->
+  <p>Last Update: ${song.updatedAt} </p>
+  <!-- Insert Show_id below -->
+  <p><a href="/song/${song.id}/edit">Edit Song</a> | <a href="/song/${song.id}/delete">Delete Song</a> </p>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

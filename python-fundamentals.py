@@ -589,8 +589,10 @@ def create_user():
  Mac/Linux: | python3 -m venv py3Env   
  Windows:   | python -m venv py3Env                 
 
-# Start virtual environment/ python environment
-Mac/Linux: | source py3Env/bin/activate                         
+# Start virtual environment/ python environment / deactivate environment
+Mac/Linux: | source py3Env/bin/activate     
+# To deactivate:
+deactivate
 ------------------------------------------------------------------
 | Windows command prompt : | call py3Env\Scripts\activate       
 ------------------------------------------------------------------
@@ -600,7 +602,7 @@ Mac/Linux: | source py3Env/bin/activate
 #  -- Django
 
 # Creating a Django Project
---- *** 1. with Django Virutal environment activated navigate to folder where you want to store/save project
+--- *** 1. with Django Virtual environment activated navigate to folder where you want to store/save project
 (djangoPy3Env) > cd python/django                       # navigate to django folder      
 (djangoPy3Env) > django-admin startproject {{your_project_name_here}}
 
@@ -877,7 +879,7 @@ Make Migrations/Migrate
 # is ready for production. Luckily, changing what kind of database we are using is quite simple. In the deployment section, we'll learn how to switch to a MySQL database.
 # --- Django ORM models and queries will always be the same no matter which database we are using.
 
-# --- Django Shell
+# --- Django Shell/ipython
 To use the shell, we'll run the following command in our terminal from our project's root directory (where our manage.py file is located):
 > python manage.py shell
 

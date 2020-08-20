@@ -1,3 +1,9 @@
+MEAN stack
+- MongoDB
+- express.js
+- Angular
+- Node
+
 SCOPE
 // At a base level, JavaScript has function scoping. This means that when we declare variables inside of a function, 
 // they are only accessible to that function. Function calls create new scope. 

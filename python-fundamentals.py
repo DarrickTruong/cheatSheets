@@ -1358,3 +1358,21 @@ def login():
     # if we didn't find anything in the database by searching by username or if the passwords don't match, 
     # redirect back to a safe route
     return redirect("/")
+
+
+
+
+# openpyxl excel
+# in python cli (terminal)
+
+import openpyxl
+import os #change directory
+openpyxl.__version__ # to get version
+
+os.chdir("your folder directory")
+
+wb = openpyxl.load_workbook("file name here")
+wb.sheetnames  #get sheet names
+sheet = wb['Sheet name here']
+
+

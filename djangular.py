@@ -1,3 +1,18 @@
+django3 - ASGI vs WSGI (older)
+    - ASGI - Asynchronous Server Gateway Interface
+
+# Asynchronous Execution:
+# When a task is executed asynchronously, you can directly switch to another task before the previous has been 
+# completed. One task does not depend on the other.
+
+# Synchronous Execution :
+# When a task is executed synchronously, you wait for a task to be completed before moving on to another task. 
+# One task depends on the end of another.
+
+# Callback 
+
+
+
 pip3 freeze > requirements.txt # in the back_end folder. saves a text file with the requirements of project
 
 # in apps/app name/apps.py
@@ -56,3 +71,8 @@ def index(request):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+
+# Create admin/super user
+python3 manage.py createsuperuser

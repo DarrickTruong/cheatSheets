@@ -694,6 +694,12 @@ Example: '^a$' matches only the letter 'a'
 # in the groups as parameters in the associated functions. A few basic regular expression patterns that will 
 # come in handy include:
 
+in urlpattterns, urls.py, use 'url()' when using regex in url routing
+#  example, url(r'^articles/(?P<year>[0-9]{4})/$', views.year_archive)
+use 'path()' for more readable url routing syntax
+#  path('articles/<int:year>/', views.year_archive)
+
+
 [] - matches any value in a range - Regex
 Example: '[a-z]' matches 'abc' and 'xyz' but not 'b7' or 'ABC'
 \d+ - matches digits with at least one digit

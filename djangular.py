@@ -1,5 +1,19 @@
 pip3 freeze > requirements.txt # in the back_end folder. saves a text file with the requirements of project
 
+# in settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'apps.flights', #import apps
+    'rest_framework', #import rest_framework for api
+    'corsheaders', #import cors for api
+]
+
+
 # in apps/app name/apps.py
 from django.apps import AppConfig
 class SchedulerConfig(AppConfig):
@@ -56,3 +70,22 @@ def index(request):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+
+# Create admin/super user
+python3 manage.py createsuperuser
+
+django3 - ASGI vs WSGI(older)
+- ASGI - Asynchronous Server Gateway Interface
+- Might need to install ASGI server helper(daphne)
+
+# Asynchronous Execution:
+# When a task is executed asynchronously, you can directly switch to another task before the previous has been
+# completed. One task does not depend on the other.
+
+# Synchronous Execution :
+# When a task is executed synchronously, you wait for a task to be completed before moving on to another task.
+# One task depends on the end of another.
+
+# Callback

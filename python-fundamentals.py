@@ -694,6 +694,12 @@ Example: '^a$' matches only the letter 'a'
 # in the groups as parameters in the associated functions. A few basic regular expression patterns that will 
 # come in handy include:
 
+in urlpattterns, urls.py, use 'url()' when using regex in url routing
+#  example, url(r'^articles/(?P<year>[0-9]{4})/$', views.year_archive)
+use 'path()' for more readable url routing syntax
+#  path('articles/<int:year>/', views.year_archive)
+
+
 [] - matches any value in a range - Regex
 Example: '[a-z]' matches 'abc' and 'xyz' but not 'b7' or 'ABC'
 \d+ - matches digits with at least one digit
@@ -1365,8 +1371,10 @@ def login():
 # openpyxl excel
 # in python cli (terminal)
 
+
 import openpyxl
 import os #change directory
+from openpyxl.utils import get_column_letter
 openpyxl.__version__ # to get version
 
 os.chdir("your folder directory")
@@ -1375,4 +1383,12 @@ wb = openpyxl.load_workbook("file name here")
 wb.sheetnames  #get sheet names
 sheet = wb['Sheet name here']
 
+type(wb) # find out what 'wb' is
+wb.get_sheet_names() # get all sheets in wb
 
+sheet.max_row/column # how many rows/column in sheet
+get_column_letter(index) # get the column letter of index
+
+# excel indexes start at 1 NOT 0 
+    sheet.cell(row=i, column=52).value
+    sheet['A2'].value

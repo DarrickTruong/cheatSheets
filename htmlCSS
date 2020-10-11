@@ -1,0 +1,141 @@
+CSS box-sizing Property 
+  - The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
+
+HTML semantics
+    main - main content of the homepage, unique to that page. not on anyother page
+    section - defined a section of a webpage (blog post, contact info)
+    aside - some content related to something else (ie similar blogs) 
+    header header of website, contains nav, title etc
+    footer
+
+Position
+  - Sticky 
+    position:sticky;
+    top: 0; // where it will stick when you scroll
+
+Flexbox
+https://www.youtube.com/watch?v=JJSoEo8JSnc&list=PLvSGGk9WcoNK1Tryj3NDCCGZF5nfQoKOL&index=15&t=0s
+    - No Floats
+    - Responsive and mobile friendly
+    - Positioning child elements is much easier
+    - flex containers margins do not collapse with the margins of its containers
+    - Order of elements can be changed without changing html
+
+    Flexbox build for small scall layouts vs. Grid which is more large scale
+
+.container-1 { /* parent container */
+        display: flex;
+        /* align-items: flex-start; */
+        /* align-items: flex-end; */
+        /* align-items: center; */
+        /* flex-direction: row; column */
+        justify-content: space-around;
+      }
+
+      .box-1 {
+        flex: 1;
+        order: 2;
+        flex-basis: 27%; /* flexbox version of width */
+      }
+      .box-2 {
+        flex: 1;
+        order: 3;
+      }
+      .box-3 {
+        flex: 1;
+        order: 1;
+      }
+
+
+Grid layouts
+    The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.
+
+<--! in html -->
+<div class="grid-container">
+  <div class="grid-item">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>
+  <div class="grid-item">4</div>
+  <div class="grid-item">5</div>
+  <div class="grid-item">6</div>
+  <div class="grid-item">7</div>
+  <div class="grid-item">8</div>
+  <div class="grid-item">9</div>
+</div>
+
+<--! in css -->
+.grid-container {
+  display: grid;
+}
+  All direct children of the grid container automatically become grid items.
+  Grid Columns
+    The vertical lines of grid items are called columns.
+  Grid Rows
+    The horizontal lines of grid items are called rows.
+  Grid Gaps
+    The spaces between each column/row are called gaps.
+
+
+
+Bootstrap 
+  - looks the same on all browsers
+  - built on flexbox principles
+
+in <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    // link your own css after the bootstrap css
+
+at bottom of body
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

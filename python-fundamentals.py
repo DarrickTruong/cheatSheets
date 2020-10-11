@@ -846,7 +846,7 @@ class Movie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __repr__(self):
-            return f"<Wizard object: {self.name} {self.house} {self.pet} {self.year} ({self.id})>"
+            return "<Wizard object: {self.name} {self.house} {self.pet} {self.year} ({self.id})>"
 
 Model Fields
 CharField(max_length=45)

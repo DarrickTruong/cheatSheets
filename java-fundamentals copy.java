@@ -779,11 +779,6 @@ While it may seem repetitive to write getters and setters for every field, it is
 declare access privileges for any member variable that we want to expose to the outside world.
 
 Constructors and Method Overloading
-
-static block will run once as the class loads at runtime. 
-//	static {
-//		System.out.println("hello before main!");
-//	}
 A constructor method is a special function that gets called when an instance of an object is created. The differences between a 
 constructor method and the other methods are:
 // It doesn't have a return type.
